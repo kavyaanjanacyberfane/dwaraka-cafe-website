@@ -1,0 +1,47 @@
+export default defineNuxtConfig({
+  compatibilityDate: "2025-01-01",
+  devtools: { enabled: true },
+  css: ["~/assets/css/main.css"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/seo", "nuxt-schema-org", "@nuxtjs/sitemap"],
+  site: {
+    url: "https://dwarakacafe.com",
+    name: "Dwaraka Cafe",
+    description:
+      "Pure vegetarian dining at Dwaraka Cafe in Patancheru Industrial Area, Hyderabad, Telangana.",
+  },
+  sitemap: { enabled: true },
+  schemaOrg: {
+    identity: {
+      type: "Restaurant",
+      name: "Dwaraka Cafe",
+      url: "https://dwarakacafe.com",
+      logo: "/images/dwaraka-cafe-logo.png",
+      telephone: "+918639408555",
+      address: {
+        streetAddress: "Patancheru Industrial Area",
+        addressLocality: "Hyderabad",
+        addressRegion: "Telangana",
+        postalCode: "502319",
+        addressCountry: "IN",
+      },
+    },
+  },
+  app: {
+    head: {
+      htmlAttrs: { lang: "en-IN" },
+      meta: [{ name: "theme-color", content: "#064b31" }],
+      link: [
+        { rel: "preconnect", href: "https://fonts.googleapis.com" },
+        {
+          rel: "preconnect",
+          href: "https://fonts.gstatic.com",
+          crossorigin: "",
+        },
+        {
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap",
+        },
+      ],
+    },
+  },
+});
