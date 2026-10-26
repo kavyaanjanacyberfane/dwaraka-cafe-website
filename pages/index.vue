@@ -1,8 +1,18 @@
+```vue
 <script setup>
 const siteUrl = "https://dwarakacafe.com";
-const title = "Dwaraka Cafe | Pure Veg Restaurant in Patancheru, Hyderabad";
+
+const title =
+  "Dwaraka Cafe | Pure Veg Restaurant in Patancheru, Hyderabad";
+
 const description =
   "Visit Dwaraka Cafe for a welcoming pure vegetarian dining experience in Patancheru Industrial Area, Hyderabad, Telangana.";
+
+// External food photograph used for the hero and social sharing preview.
+const foodImage =
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaRIDhibLrxPbvOxygKMZ6outLto59XH52PxympKwqFw&s=10";
+
+
 useSeoMeta({
   title,
   description,
@@ -12,10 +22,20 @@ useSeoMeta({
   ogDescription: description,
   ogType: "website",
   ogUrl: siteUrl,
-  ogImage: `${siteUrl}/images/dwaraka-cafe-logo.png`,
+  ogImage: foodImage,
   twitterCard: "summary_large_image",
+  twitterImage: foodImage,
 });
-useHead({ link: [{ rel: "canonical", href: siteUrl }] });
+
+useHead({
+  link: [
+    {
+      rel: "canonical",
+      href: siteUrl,
+    },
+  ],
+});
+
 useSchemaOrg([
   defineWebPage({
     "@type": "WebPage",
@@ -24,6 +44,7 @@ useSchemaOrg([
     description,
     url: siteUrl,
   }),
+
   defineWebSite({
     "@type": "WebSite",
     "@id": `${siteUrl}/#website`,
@@ -31,161 +52,395 @@ useSchemaOrg([
     url: siteUrl,
     description,
   }),
-defineLocalBusiness({
-  "@type": "Restaurant",
-  "@id": `${siteUrl}/#restaurant`,
-  name: "Dwaraka Cafe",
-  url: siteUrl,
-  image: `${siteUrl}/images/dwaraka-cafe-logo.png`,
-  logo: `${siteUrl}/images/dwaraka-cafe-logo.png`,
-  telephone: "+91 86394 08555",
-  servesCuisine: ["Vegetarian", "Indian"],
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Patancheru Industrial Area",
-    addressLocality: "Hyderabad",
-    addressRegion: "Telangana",
-    postalCode: "502319",
-    addressCountry: "IN",
-  },
-}),
-  defineBreadcrumb({ itemListElement: [{ name: "Home", item: siteUrl }] }),
+
+  defineLocalBusiness({
+    "@type": "Restaurant",
+    "@id": `${siteUrl}/#restaurant`,
+    name: "Dwaraka Cafe",
+    url: siteUrl,
+    image: foodImage,
+
+    // Preserve the original Dwaraka Cafe logo for branding.
+    logo: `${siteUrl}/images/dwaraka-cafe-logo.png`,
+
+    telephone: "+91 86394 08555",
+    servesCuisine: ["Vegetarian", "Indian"],
+
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Patancheru Industrial Area",
+      addressLocality: "Hyderabad",
+      addressRegion: "Telangana",
+      postalCode: "502319",
+      addressCountry: "IN",
+    },
+  }),
+
+  defineBreadcrumb({
+    itemListElement: [
+      {
+        name: "Home",
+        item: siteUrl,
+      },
+    ],
+  }),
 ]);
 </script>
+
 <template>
-  <div>
+  <div class="home-page">
+    <!-- HERO SECTION -->
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <span class="eyebrow">✦ PURE VEGETARIAN · MADE WITH CARE</span>
+          <span class="eyebrow">
+            ✦ PURE VEGETARIAN · MADE WITH CARE
+          </span>
+
           <h1>
-            A little more <em>flavour.</em><br />A lot more <em>feeling.</em>
+            A little more <em>flavour.</em><br />
+            A lot more <em>feeling.</em>
           </h1>
+
           <p>
-            Welcome to Dwaraka Cafe — a place to slow down, share a meal, and
-            enjoy the goodness of vegetarian food.
+            Welcome to Dwaraka Cafe — a place to slow down, share a meal,
+            and enjoy the goodness of vegetarian food.
           </p>
+
           <div class="actions">
-            <NuxtLink to="/contact#visit" class="button"
-              >Plan Your Visit ↗</NuxtLink
-            ><NuxtLink to="/about" class="text-link">Get to know us →</NuxtLink>
+            <NuxtLink to="/contact#visit" class="button">
+              Plan Your Visit ↗
+            </NuxtLink>
+
+            <NuxtLink to="/about" class="text-link">
+              Get to know us →
+            </NuxtLink>
           </div>
+
           <div class="promise">
             <span>✦</span>
+
             <div>
-              <strong>100% vegetarian</strong
-              ><small>A welcoming place for every meal</small>
+              <strong>100% vegetarian</strong>
+              <small>A welcoming place for every meal</small>
             </div>
           </div>
         </div>
+
+        <!-- REAL FOOD PHOTOGRAPH -->
         <div class="hero-art">
           <div class="hero-art-inner">
             <img
-              src="/images/dwaraka-cafe-logo.png"
-              alt="Dwaraka Cafe Pure Veg logo"
+              :src="foodImage"
+              alt="Indian vegetarian meal featuring traditional dishes"
+              width="1200"
+              height="900"
+              fetchpriority="high"
             />
+
             <div class="art-caption">
               ✦ &nbsp; PURE VEG · GOOD MOOD &nbsp; ✦
             </div>
           </div>
-          <div class="floating-note">✳ Freshly welcoming</div>
+
+          <div class="floating-note">
+            ✳ Freshly welcoming
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- WELCOME SECTION WITH RESTAURANT AMBIENCE -->
     <section class="section welcome">
-      <div class="container two-col">
-        <div>
-          <span class="kicker">A TASTE OF DWARAKA</span>
-          <h2>Vegetarian food.<br /><em>Made for togetherness.</em></h2>
+      <div class="container welcome-grid">
+        <div class="welcome-image">
+          <img
+            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=85"
+            alt="Restaurant interior with comfortable seating and warm ambience"
+            width="1000"
+            height="750"
+            loading="lazy"
+          />
+
+          <div class="image-badge">
+            <span>✦</span>
+            A place to gather
+          </div>
         </div>
-        <div>
+
+        <div class="welcome-copy">
+          <span class="kicker">A TASTE OF DWARAKA</span>
+
+          <h2>
+            Vegetarian food.<br />
+            <em>Made for togetherness.</em>
+          </h2>
+
           <p>
-            Some meals are about more than what’s on the plate. They’re about
-            conversations that run long, family moments, and the comfort of
-            sharing something delicious.
+            Some meals are about more than what’s on the plate. They’re
+            about conversations that run long, family moments, and the
+            comfort of sharing something delicious.
           </p>
+
           <p>
-            At Dwaraka Cafe, we welcome you to enjoy a relaxed pure vegetarian
-            dining experience in Patancheru, Hyderabad.
+            At Dwaraka Cafe, we welcome you to enjoy a relaxed pure
+            vegetarian dining experience in Patancheru, Hyderabad.
           </p>
-          <NuxtLink to="/about" class="underlined">Our story ↗</NuxtLink>
+
+          <NuxtLink to="/about" class="underlined">
+            Our story ↗
+          </NuxtLink>
         </div>
       </div>
     </section>
+
+    <!-- VALUES SECTION -->
     <section class="section values">
       <div class="container">
         <div class="center-heading">
           <span class="kicker">THE DWARAKA FEELING</span>
-          <h2>Simple things, <em>done with heart.</em></h2>
+
+          <h2>
+            Simple things, <em>done with heart.</em>
+          </h2>
+
           <p>
-            A friendly space for good food and the people you love sharing it
-            with.
+            A friendly space for good food and the people you love
+            sharing it with.
           </p>
         </div>
+
         <div class="cards">
           <article class="value-card">
-            <span class="value-icon">✺</span><small>01 / OUR PROMISE</small>
+            <span class="value-icon">✺</span>
+            <small>01 / OUR PROMISE</small>
+
             <h3>Pure vegetarian</h3>
+
             <p>
-              A vegetarian dining experience that makes everyone at the table
-              feel welcome.
+              A vegetarian dining experience that makes everyone at the
+              table feel welcome.
             </p>
           </article>
+
           <article class="value-card featured">
-            <span class="value-icon">❋</span><small>02 / OUR APPROACH</small>
+            <span class="value-icon">❋</span>
+            <small>02 / OUR APPROACH</small>
+
             <h3>Made for sharing</h3>
+
             <p>
-              Bring your family, meet your friends, or simply take a break and
-              enjoy the moment.
+              Bring your family, meet your friends, or simply take a
+              break and enjoy the moment.
             </p>
           </article>
+
           <article class="value-card">
-            <span class="value-icon">✦</span><small>03 / OUR PLACE</small>
+            <span class="value-icon">✦</span>
+            <small>03 / OUR PLACE</small>
+
             <h3>Warm hospitality</h3>
+
             <p>
-              A relaxed place to gather, catch up, and make your everyday meal
-              feel special.
+              A relaxed place to gather, catch up, and make your
+              everyday meal feel special.
             </p>
           </article>
         </div>
       </div>
     </section>
+
+    <!-- CALL TO ACTION -->
     <section class="cta">
       <div class="container cta-inner">
         <div>
           <span class="kicker">COME ON IN</span>
-          <h2>Good food is better <em>together.</em></h2>
-          <p>Find Dwaraka Cafe in Patancheru Industrial Area, Hyderabad.</p>
+
+          <h2>
+            Good food is better <em>together.</em>
+          </h2>
+
+          <p>
+            Find Dwaraka Cafe in Patancheru Industrial Area, Hyderabad.
+          </p>
         </div>
-        <NuxtLink to="/contact#visit" class="button button-light"
-          >Get directions ↗</NuxtLink
+
+        <NuxtLink
+          to="/contact#visit"
+          class="button button-light"
         >
+          Get directions ↗
+        </NuxtLink>
       </div>
     </section>
+
+    <!-- GOOGLE REVIEW SECTION -->
     <section class="section review">
       <div class="container review-grid">
         <div>
           <span class="kicker">YOUR WORDS MATTER</span>
-          <h2>Enjoyed your visit?<br /><em>Tell us about it.</em></h2>
+
+        <h2 class="review-heading">
+  Enjoyed your visit? <em>Tell us about it.</em>
+</h2>
+
           <p>
-            Your feedback helps us keep making every visit a better experience.
-            Share your thoughts on Google.
+            Your feedback helps us keep making every visit a better
+            experience. Share your thoughts on Google.
           </p>
+
           <a
             class="button"
             href="https://share.google/0XrmDYe0BPVJ77VJI"
             target="_blank"
             rel="noopener noreferrer"
-            >Find us on Google ↗</a
           >
+            Find us on Google ↗
+          </a>
         </div>
-        <div class="poster-wrap">
+
+        <!-- KEEP THE EXISTING GOOGLE REVIEW POSTER -->
+        <!-- <div class="poster-wrap">
           <img
             src="/images/google-review-poster.png"
-            alt="Dwaraka Cafe Google review poster"
+            alt="Dwaraka Cafe Google review poster with QR code"
+            width="1024"
+            height="1536"
+            loading="lazy"
           />
-        </div>
+        </div> -->
       </div>
     </section>
   </div>
 </template>
+
+<style scoped>
+/* WELCOME SECTION */
+
+.welcome-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.welcome-image {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  aspect-ratio: 5 / 4;
+  border-radius: 24px;
+  background: #f5eddd;
+}
+
+.welcome-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.welcome-image:hover img {
+  transform: scale(1.04);
+}
+
+.welcome-copy {
+  min-width: 0;
+}
+
+.welcome-copy h2 {
+  margin: 1rem 0;
+  line-height: 1.2;
+}
+
+.welcome-copy p {
+  margin-bottom: 1rem;
+  line-height: 1.9;
+}
+
+.image-badge {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  padding: 0.8rem 1.1rem;
+  border-radius: 12px;
+  background: #fffdf5;
+  color: #064b31;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgb(0 0 0 / 10%);
+}
+
+.image-badge span {
+  margin-right: 0.4rem;
+  color: #e9a51b;
+}
+
+/* RESPONSIVE LAYOUT */
+
+@media (max-width: 768px) {
+  .welcome-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .welcome-image {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 480px) {
+  .image-badge {
+    left: 0.75rem;
+    bottom: 0.75rem;
+    padding: 0.65rem 0.85rem;
+    font-size: 0.875rem;
+  }
+}
+
+.review-heading {
+  white-space: nowrap;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  line-height: 1.2;
+}
+
+/* Allow the heading to wrap on smaller screens */
+@media (max-width: 768px) {
+  .review-heading {
+    white-space: normal;
+    font-size: clamp(2rem, 6vw, 2.6rem);
+  }
+}
+/* Center the Google Review section content */
+.review-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.review-grid > div:first-child {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review-heading {
+  text-align: center;
+  width: 100%;
+}
+
+.review-grid p {
+  text-align: center;
+  max-width: 650px;
+}
+
+@media (max-width: 768px) {
+  .review-heading {
+    white-space: normal;
+  }
+}
+</style>
+```

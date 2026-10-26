@@ -38,7 +38,7 @@ useSchemaOrg([
         <h1>We’d love to<br /><em>hear from you.</em></h1>
         <p>Planning a visit? Find our location or give us a call.</p>
       </div>
-      <span class="hero-symbol">✳</span>
+      <!-- <span class="hero-symbol">✳</span> -->
     </section>
     <section id="visit" class="section contact-section">
       <div class="container contact-grid">
@@ -111,3 +111,161 @@ useSchemaOrg([
     </section>
   </div>
 </template>
+
+<style scoped>
+/* Keep the About page layout centered */
+/* About section layout */
+.about-grid {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+/* Image container */
+.about-photo-container {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: var(--green);
+  text-align: center;
+}
+
+/* Image fills the container */
+.about-photo-container .about-photo {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Mobile layout */
+@media (max-width: 760px) {
+  .about-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+    padding: 0 16px;
+  }
+
+  .about-photo-container {
+    width: 100%;
+    height: 340px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-grid {
+    padding: 0 12px;
+  }
+
+  .about-photo-container {
+    height: 280px;
+  }
+}
+/* Make the restaurant image fill the entire container */
+.about-photo-container .about-photo {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Caption overlay */
+.about-photo-container .about-photo-caption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: block;
+  margin: 0;
+  padding: 25px 12px 20px;
+  color: #ffb51b;
+  background: linear-gradient(
+    to top,
+    rgba(3, 59, 39, 0.95),
+    rgba(3, 59, 39, 0)
+  );
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-align: center;
+}
+
+/* Center the About section text */
+.about-grid > div:last-child {
+  text-align: center;
+}
+
+.about-grid > div:last-child .kicker {
+  display: inline-block;
+}
+
+.about-grid > div:last-child h2 {
+  text-align: center;
+}
+
+.about-grid > div:last-child p {
+  max-width: 620px;
+  margin: 0 auto 15px;
+  text-align: center;
+}
+
+/* Center the vegetarian feature row */
+.about-grid .fact {
+  justify-content: center;
+  text-align: left;
+}
+
+/* Center the page's top hero content */
+.inner-hero > .container {
+  text-align: center;
+}
+
+.inner-hero h1,
+.inner-hero p {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.inner-hero p {
+  max-width: 620px;
+}
+
+/* Tablet and mobile */
+@media (max-width: 760px) {
+  .about-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+  }
+
+  .about-photo-container {
+    height: 340px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-photo-container {
+    height: 280px;
+  }
+
+  .about-grid > div:last-child h2 {
+    font-size: clamp(30px, 8vw, 38px);
+  }
+}
+</style>
+
