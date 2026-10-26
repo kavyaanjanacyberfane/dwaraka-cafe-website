@@ -139,67 +139,9 @@ import { NuxtModule, ModuleDependencyMeta } from '@nuxt/schema'
       strictNuxtContentPaths: any,
 
       isNuxtContentDocumentDriven: boolean,
-
-      componentDirs: Array<string>,
    },
   }
   interface SharedPublicRuntimeConfig {
-   "nuxt-schema-org": {
-      reactive: boolean,
-
-      minify: boolean,
-
-      scriptAttributes: {
-         "data-nuxt-schema-org": boolean,
-      },
-
-      identity: {
-         type: string,
-
-         name: string,
-
-         url: string,
-
-         logo: string,
-
-         telephone: string,
-
-         address: {
-            streetAddress: string,
-
-            addressLocality: string,
-
-            addressRegion: string,
-
-            postalCode: string,
-
-            addressCountry: string,
-         },
-      },
-
-      version: string,
-   },
-
-   "nuxt-link-checker": {
-      version: string,
-
-      hasSitemapModule: boolean,
-
-      rootDir: string,
-
-      excludeLinks: Array<{
-
-      }>,
-
-      skipInspections: Array<any>,
-
-      fetchTimeout: number,
-
-      showLiveInspections: boolean,
-
-      fetchRemoteUrls: boolean,
-   },
-
    "seo-utils": {
       canonicalQueryWhitelist: Array<string>,
 

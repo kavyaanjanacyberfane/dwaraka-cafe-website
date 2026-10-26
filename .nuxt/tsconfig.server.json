@@ -161,12 +161,6 @@
       "#robots/*": [
         "../node_modules/@nuxtjs/robots/dist/runtime/*"
       ],
-      "#link-checker": [
-        "../node_modules/nuxt-link-checker/dist/runtime"
-      ],
-      "#link-checker/*": [
-        "../node_modules/nuxt-link-checker/dist/runtime/*"
-      ],
       "#og-image": [
         "../node_modules/nuxt-og-image/dist/runtime"
       ],
@@ -203,14 +197,11 @@
       "#internal/nuxt-robots/*": [
         "../node_modules/@nuxtjs/robots/dist/runtime/server/composables/*"
       ],
-      "#link-checker/content-provider": [
-        "../node_modules/nuxt-link-checker/dist/runtime/server/providers/noop"
-      ],
       "#og-image/renderers/satori": [
         "../node_modules/nuxt-og-image/dist/runtime/server/og-image/satori/renderer"
       ],
       "#og-image/renderers/chromium": [
-        "../node_modules/nuxt-og-image/dist/runtime/server/og-image/chromium/renderer"
+        "../node_modules/nuxt-og-image/dist/runtime/mock/empty"
       ],
       "#og-image/bindings/css-inline": [
         "../node_modules/nuxt-og-image/dist/runtime/mock/empty"
@@ -225,7 +216,22 @@
         "../node_modules/nuxt-og-image/dist/runtime/server/og-image/bindings/satori/node"
       ],
       "#og-image/bindings/chromium": [
-        "../node_modules/nuxt-og-image/dist/runtime/server/og-image/bindings/chromium/chrome-launcher"
+        "../node_modules/nuxt-og-image/dist/runtime/server/og-image/bindings/chromium/null"
+      ],
+      "electron": [
+        "../node_modules/nuxt-og-image/dist/runtime/mock/proxy-cjs"
+      ],
+      "bufferutil": [
+        "../node_modules/nuxt-og-image/dist/runtime/mock/proxy-cjs"
+      ],
+      "utf-8-validate": [
+        "../node_modules/nuxt-og-image/dist/runtime/mock/proxy-cjs"
+      ],
+      "queue": [
+        "../node_modules/nuxt-og-image/dist/runtime/mock/proxy-cjs"
+      ],
+      "chromium-bidi": [
+        "../node_modules/nuxt-og-image/dist/runtime/mock/proxy-cjs"
       ]
     },
     "lib": [
@@ -249,7 +255,6 @@
   ],
   "exclude": [
     "../node_modules",
-    "../../../node_modules",
     "../node_modules/nuxt/node_modules",
     "../node_modules/@nuxtjs/tailwindcss/node_modules",
     "../node_modules/@nuxtjs/seo/node_modules",

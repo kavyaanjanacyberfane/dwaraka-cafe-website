@@ -160,12 +160,6 @@
       "#robots/*": [
         "../node_modules/@nuxtjs/robots/dist/runtime/*"
       ],
-      "#link-checker": [
-        "../node_modules/nuxt-link-checker/dist/runtime"
-      ],
-      "#link-checker/*": [
-        "../node_modules/nuxt-link-checker/dist/runtime/*"
-      ],
       "#og-image": [
         "../node_modules/nuxt-og-image/dist/runtime"
       ],
@@ -185,7 +179,7 @@
         "../node_modules/nuxt-seo-utils/dist/runtime/*"
       ],
       "#app-manifest": [
-        "./manifest/meta/dev.json"
+        "./manifest/meta/45078bcf-a8ca-41db-bacb-065cc716f011.json"
       ],
       "#components": [
         "./components"
@@ -239,11 +233,10 @@
   "exclude": [
     "../dist",
     "../.data",
-    "../../../node_modules",
     "../node_modules/runtime/server",
     "../node_modules/dist/runtime/server",
     "../node_modules/nuxt-site-config/dist/runtime/server",
     "../node_modules/nuxt-site-config/dist/dist/runtime/server",
-    "dev"
+    "../.output"
   ]
 }
