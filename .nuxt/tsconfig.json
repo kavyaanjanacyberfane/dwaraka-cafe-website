@@ -179,7 +179,7 @@
         "../node_modules/nuxt-seo-utils/dist/runtime/*"
       ],
       "#app-manifest": [
-        "./manifest/meta/45078bcf-a8ca-41db-bacb-065cc716f011.json"
+        "./manifest/meta/81c9eb50-a8cf-4f82-8d8a-f1efae8a3bb1.json"
       ],
       "#components": [
         "./components"
