@@ -128,9 +128,6 @@ img {
   letter-spacing: 0.16em;
   line-height: 1.7;
 }
-.kicker {
-    font-size: 13px !important;
-    }
 .hero h1,
 .inner-hero h1 {
   font-family: "Playfair Display", serif;
@@ -951,11 +948,7 @@ h2 em,
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.14em;
-  background: linear-gradient(
-    to top,
-    rgb(3 59 39 / 85%),
-    transparent
-  );
+  background: linear-gradient(to top, rgb(3 59 39 / 85%), transparent);
 }
 
 /* Floating label */
@@ -1099,11 +1092,7 @@ h2 em,
   padding: 22px 12px;
   color: #fff;
   text-align: center;
-  background: linear-gradient(
-    to top,
-    rgb(3 59 39 / 85%),
-    transparent
-  );
+  background: linear-gradient(to top, rgb(3 59 39 / 85%), transparent);
 }
 
 /* Keep the floating label above the border */
@@ -1148,4 +1137,13 @@ h2 em,
     right: 0;
   }
 }
+/* Highlight Dining District link in gold */
+.dining-district-link {
+  color: var(--gold) !important;
+  transition: color 0.2s ease;
+}
 
+.dining-district-link:hover {
+  color: #ffb51b !important;
+  text-decoration: underline;
+}

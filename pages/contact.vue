@@ -49,9 +49,18 @@ useSchemaOrg([
           <div class="contact-item">
             <span class="contact-icon">⌖</span>
             <div>
-              <small>OUR LOCATION</small
-              ><strong>Patancheru Industrial Area</strong>
-              <p>Hyderabad, Telangana 502319, India</p>
+              <small>OUR LOCATION</small>
+              <p class="location-inline">
+                <a
+                  href="https://diningdistrict.in/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="dining-district-link"
+                >
+                  Dining District
+                </a>
+                <span>Patancheru Industrial Area, Hyderabad</span>
+              </p>
               <a
                 class="underlined"
                 href="https://share.google/0XrmDYe0BPVJ77VJI"
@@ -85,7 +94,17 @@ useSchemaOrg([
             <div>
               <small>COME FIND US</small>
               <h3>Dwaraka Cafe</h3>
-              <p>Patancheru Industrial Area, Hyderabad</p>
+              <p>
+                <a
+                  href="https://diningdistrict.in/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="dining-district-link"
+                >
+                  Dining District
+                </a>
+                <span>Patancheru Industrial Area, Hyderabad</span>
+              </p>
             </div>
           </div>
           <div class="map-art">
@@ -115,6 +134,30 @@ useSchemaOrg([
 <style scoped>
 /* Keep the About page layout centered */
 /* About section layout */
+.location-inline {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.location-inline span {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--green) !important;
+}
+
+.dining-district-link {
+  color: #b78116 !important;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.dining-district-link:hover {
+  color: #ffb51b !important;
+  text-decoration: underline;
+}
 .about-grid {
   width: 100%;
   max-width: 1200px;
@@ -268,4 +311,3 @@ useSchemaOrg([
   }
 }
 </style>
-
